@@ -24,14 +24,16 @@ function App() {
     <div className="App">
       <title>Micro URL Shortener</title>
         <table className="table">
-          <tr>
-            <td>
-              <Form />
-            </td>
-            <td>
-              <Table rows={rows} />
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <Form />
+              </td>
+              <td>
+                <Table rows={rows} />
+              </td>
+            </tr>
+          </tbody>
         </table>        
     </div>
   );
