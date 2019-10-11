@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react"
+import { LinkContext } from "../../contexts/LinkContext";
 
 
 function Form(props) {
   const [link, setLink] = useState('');
+  const [, setState] = useContext(LinkContext);
+  const { LinkContextLocal } = useContext(LinkContext);
 
-  const handleSubmit = () => {
-    const apiUrl ="https://micro-url-api.herokuapp.com/api/v1/links"
-    const data = { "url": link }
-    fetch(apiUrl, { method: 'POST',
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' } })
-      .then(res => console.log(res))
-      .catch(error => console.error('Error:', error)
-    ); 
+  function submitClick() {
+    console.log('== submitClick in Form.js')
+    setState(state => ({ ...state, link: link }));
+    // LinkContextLocal.PostLink();
   }
 
 	return (
@@ -34,7 +31,7 @@ function Form(props) {
         />
       </div>
 
-      <button type="button" className="btn btn-lg btn-primary btn-block" onClick={handleSubmit} >Submit</button>
+      <button type="button" className="btn btn-lg btn-primary btn-block" onClick={submitClick} >Submit</button>
     </form>  
 	)
 }

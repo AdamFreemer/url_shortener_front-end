@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import './App.css';
-import './bootstrap.min.css';
-import './floating-labels.css';
+import React, { useState, useEffect, useContext } from "react";
+import './style/App.css';
+import './style/bootstrap.min.css';
+import './style/floating-labels.css';
 import Form from './components/CreateUrlForm/Form';
 import Table from './components/TopLinksList/Table';
+import { LinkProvider } from "./contexts/LinkContext";
 
 function App() {
   const [setErrors] = useState(false);
@@ -21,21 +22,24 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <title>Micro URL Shortener</title>
-        <table className="table">
-          <tbody>
-            <tr>
-              <td>
-                <Form />
-              </td>
-              <td>
-                <Table rows={rows} />
-              </td>
-            </tr>
-          </tbody>
-        </table>        
-    </div>
+    <LinkProvider>
+      <div className="App">
+        <title>Micro URL Shortener</title>
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>
+                  <Form />
+                </td>
+                <td>
+                  <Table rows={rows} />
+                </td>
+              </tr>
+            </tbody>
+          </table>        
+      </div>
+    </LinkProvider>
+
   );
 }
 
