@@ -1,5 +1,5 @@
 import React from "react";
-import './style/app.css';
+import './style/App.css';
 import './style/bootstrap.min.css';
 import './style/floating-labels.css';
 import Form from './components/CreateUrlForm/Form';
