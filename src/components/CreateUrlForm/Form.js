@@ -1,38 +1,40 @@
 import React, { useContext, useState } from "react"
 import { LinkContext } from "../../contexts/LinkContext";
+import '../../style/form.css';
 
-
-function Form(props) {
+function Form() {
   const [link, setLink] = useState('');
-  const [, setState] = useContext(LinkContext);
-  const { LinkContextLocal } = useContext(LinkContext);
+  const linkContext = useContext(LinkContext);
+
 
   function submitClick() {
-    console.log('== submitClick in Form.js')
-    setState(state => ({ ...state, link: link }));
-    // LinkContextLocal.PostLink();
+    linkContext.SubmitHandler(link);
   }
-
+ 
 	return (
-    <form className="form-signin">
-      <div className="text-center mb-4">
-        <h1 className="h3 mb-3 font-weight-normal">Micro URL Shortener</h1>
-        <p>Enter a URL to shorten.</p>
-      </div>
+    
+    <div className="d-flex justify-content-center">
+      <form className="form-inline">
 
-      <div className="form-label-group">
-        <input 
-          type="field" 
-          id="url" 
-          value={link} 
-          className="form-control" 
-          placeholder="Url to Shorten" 
-          onChange={e => setLink(e.target.value)}
-        />
-      </div>
-
-      <button type="button" className="btn btn-lg btn-primary btn-block" onClick={submitClick} >Submit</button>
-    </form>  
+        <div className="form-group mx-sm-3 mb-2">
+          <input 
+            type="field" 
+            style={{width: 500}}
+            className="form-control" 
+            id="url" 
+            placeholder="Enter URL to shorten"
+            value={link} 
+            onChange={e => setLink(e.target.value)}
+          />
+        </div>
+        <button 
+          type="submit" 
+          className="btn btn-primary mb-2"
+          onClick={submitClick}
+          >{linkContext.submit}
+        </button>
+      </form>
+    </div>
 	)
 }
 

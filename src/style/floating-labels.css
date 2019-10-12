@@ -11,15 +11,15 @@ body {
 body {
   display: -ms-flexbox;
   display: -webkit-box;
-  display: flex;
+  display: flexbox;
   -ms-flex-align: center;
   -ms-flex-pack: center;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 40px;
+
+  padding:  5em 15em 5em 15em;
   background-color: #f5f5f5;
 }
 
