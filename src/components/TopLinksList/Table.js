@@ -19,7 +19,6 @@ function Table() {
   }
 
 	return (
-    
 		<table className="table table-bordered">
 			<thead>
         <tr>

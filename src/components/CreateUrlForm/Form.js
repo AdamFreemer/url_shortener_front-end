@@ -21,29 +21,27 @@ function Form() {
   }
  
 	return (
-
-          <div className="d-flex justify-content-center entry-form-spacing">
-            <form className="form-inline" onSubmit={submitHandler}>
-              <div className="form-group mx-sm-3 mb-2">
-                <input 
-                  type="field" 
-                  style={{width: 500}}
-                  className="form-control" 
-                  id="url" 
-                  placeholder="Enter URL to shorten"
-                  value={link} 
-                  onChange={e => setLink(e.target.value)}
-                />
-              </div>
-              <button 
-                type="button" 
-                className="btn btn-primary mb-2"
-                onClick={submitClick}
-                >Create Short URL
-              </button>
-            </form>
-          </div>
-
+    <div className="d-flex justify-content-center entry-form-spacing">
+      <form className="form-inline" onSubmit={submitHandler}>
+        <div className="form-group mx-sm-3 mb-2">
+          <input 
+            type="field" 
+            style={{width: 500}}
+            className="form-control" 
+            id="url" 
+            placeholder="Enter URL to shorten"
+            value={link} 
+            onChange={e => setLink(e.target.value)}
+          />
+        </div>
+        <button 
+          type="button" 
+          className="btn btn-primary mb-2"
+          onClick={submitClick}
+          >Create Short URL
+        </button>
+      </form>
+    </div>
 	)
 }
 
