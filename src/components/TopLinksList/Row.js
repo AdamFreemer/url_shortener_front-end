@@ -18,7 +18,7 @@ function Row(props) {
     }
   }
 
-	return (  
+  return (  
     <tr>
       <td className="text-right">{formatViews(props.row.views)}</td>
       <td>
@@ -29,7 +29,7 @@ function Row(props) {
         <a href={props.row.short_url} target="_blank" rel="noopener noreferrer">{props.row.short_url}</a>
       </td>
     </tr>
-	)
+  )
 }
 
 export default Row;

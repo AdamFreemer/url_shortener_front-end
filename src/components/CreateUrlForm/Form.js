@@ -19,8 +19,8 @@ function Form() {
   function submitHandler(e) {
     e.preventDefault();
   }
- 
-	return (
+
+  return (
     <div className="d-flex justify-content-center entry-form-spacing">
       <form className="form-inline" onSubmit={submitHandler}>
         <div className="form-group mx-sm-3 mb-2">
@@ -42,7 +42,7 @@ function Form() {
         </button>
       </form>
     </div>
-	)
+  )
 }
 
 export default Form;

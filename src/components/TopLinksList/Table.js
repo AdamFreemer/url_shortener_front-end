@@ -26,16 +26,16 @@ function Table() {
           <th scope="col">Title / URL</th>
           <th scope="col">Short URL</th>
         </tr>
-			</thead>
-			<tbody>
-				{rows.map((row, index) => {
-					return (
+      </thead>
+      <tbody>
+        {rows.map((row, index) => {
+          return (
             <Row key={index} row={row} />
           );
         })}
-			</tbody>
-		</table>    
-	)
+      </tbody>
+    </table>    
+  )
 }
 
 export default Table;
