@@ -12,14 +12,19 @@ function Table() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (!rows || linkContext.loading) { return <div>Loading....</div> }
+  if (!rows || linkContext.loading) { 
+    return (
+      <div className="text-center">Loading...</div> 
+    )
+  }
+
 	return (
     
-		<table className="table">
+		<table className="table table-bordered">
 			<thead>
         <tr>
           <th scope="col">Views</th>
-          <th scope="col">URL Title</th>
+          <th scope="col">Title / URL</th>
           <th scope="col">Short URL</th>
         </tr>
 			</thead>

@@ -11,15 +11,12 @@ function App() {
     <LinkProvider>
       <div className="App">
         <title>Micro URL Shortener</title>
-        
         <h1 className="text-center mb-3 font-weight-light">Micro URL Shortener</h1>
         <h6 className="text-center mb-3 font-weight-light">Top 100 Viewed URLs</h6>
-        <Table />
-        <hr />
         <Form />
+        <Table />
 
-        </div>
-      
+      </div>
     </LinkProvider>
   );
 }

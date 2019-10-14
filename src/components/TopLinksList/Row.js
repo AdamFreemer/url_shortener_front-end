@@ -1,13 +1,12 @@
-
 import React from "react"
 
 function Row(props) {
-  function formatTitle(title) {
-    if (!title) { return '' }
-    if (title.length > 100) {
-      return `${title.substring(0,100)}...`
+  function itemLengthLimiter(item) {
+    if (!item) { return '' }
+    if (item.length > 75) {
+      return `${item.substring(0,75)}...`
     } else {
-      return title
+      return item
     }
   }
 
@@ -21,13 +20,16 @@ function Row(props) {
 
 	return (  
     <tr>
-      <td>{formatViews(props.row.views)}</td>
-      <td>{formatTitle(props.row.title)}</td>
-      <td><a href={props.row.short_url} target="_blank" rel="noopener noreferrer">{props.row.short_url}</a>
+      <td className="text-right">{formatViews(props.row.views)}</td>
+      <td>
+        <b>{itemLengthLimiter(props.row.title)}</b><br/>
+        <i><a href={props.row.url} target="_blank" rel="noopener noreferrer">{itemLengthLimiter(props.row.url)}</a></i>
+      </td>
+      <td>
+        <a href={props.row.short_url} target="_blank" rel="noopener noreferrer">{props.row.short_url}</a>
       </td>
     </tr>
 	)
 }
 
 export default Row;
-
