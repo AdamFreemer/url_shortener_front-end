@@ -18,9 +18,9 @@ function Table() {
     )
   }
 
-	return (
-		<table className="table table-bordered">
-			<thead>
+  return (
+    <table className="table table-bordered">
+      <thead>
         <tr>
           <th scope="col">Views</th>
           <th scope="col">Title / URL</th>
