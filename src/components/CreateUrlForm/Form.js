@@ -23,11 +23,11 @@ function Form() {
   return (
     <div className="d-flex justify-content-center entry-form-spacing">
       <form className="form-inline" onSubmit={submitHandler}>
-        <div className="form-group mx-sm-3 mb-2">
+        <div className="form-group ">
           <input 
             type="field" 
-            style={{width: 500}}
-            className="form-control" 
+            // style={{width: 500}}
+            className="form-control sm-8 mb-2" 
             id="url" 
             placeholder="Enter URL to shorten"
             value={link} 
@@ -36,7 +36,7 @@ function Form() {
         </div>
         <button 
           type="button" 
-          className="btn btn-primary mb-2"
+          className="btn btn-primary mx-sm-3 mb-2"
           onClick={submitClick}
           >Create Short URL
         </button>

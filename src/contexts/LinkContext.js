@@ -6,6 +6,8 @@ export function LinkProvider(props) {
   const [setErrors] = useState(false);
   const [rows, setRows] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showNewUrl, setShowNewUrl] = useState(false);
+  const [newUrl, setNewUrl] = useState('')
   const postnewUrlApi ='https://micro-url-api.herokuapp.com/api/v1/links'
   const fetchTopUrlsApi = 'https://micro-url-api.herokuapp.com/api/v1/top_urls'
 
@@ -52,7 +54,8 @@ export function LinkProvider(props) {
     if (response.status === 409) {
       alert("The URL you have submitted already exists in the system. Please try again.")
     } else {
-      alert("New short URL created.")
+      setShowNewUrl(true)
+      setNewUrl(response.short_url)
     }
   }
 
@@ -62,6 +65,8 @@ export function LinkProvider(props) {
         rows,
         loading,
         setLoad,
+        newUrl,
+        showNewUrl,
         SubmitHandler,
         fetchRows,
         LinkContext,

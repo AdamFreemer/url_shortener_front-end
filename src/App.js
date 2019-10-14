@@ -3,6 +3,7 @@ import './style/App.css';
 import './style/bootstrap.min.css';
 import './style/floating-labels.css';
 import Form from './components/CreateUrlForm/Form';
+import NewUrl from './components/CreateUrlForm/NewUrl';
 import Table from './components/TopLinksList/Table';
 import { LinkProvider } from "./contexts/LinkContext";
 
@@ -14,8 +15,8 @@ function App() {
         <h1 className="text-center mb-3 font-weight-light">Micro URL Shortener</h1>
         <h6 className="text-center mb-3 font-weight-light">Top 100 Viewed URLs</h6>
         <Form />
+        <NewUrl />
         <Table />
-
       </div>
     </LinkProvider>
   );

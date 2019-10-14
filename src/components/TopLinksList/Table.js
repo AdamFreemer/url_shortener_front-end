@@ -19,22 +19,25 @@ function Table() {
   }
 
   return (
-    <table className="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">Views</th>
-          <th scope="col">Title / URL</th>
-          <th scope="col">Short URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row, index) => {
-          return (
-            <Row key={index} row={row} />
-          );
-        })}
-      </tbody>
-    </table>    
+    <div class="table-responsive">
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Views</th>
+            <th scope="col">Title / URL</th>
+            <th scope="col">Short URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => {
+            return (
+              <Row key={index} row={row} />
+            );
+          })}
+        </tbody>
+      </table> 
+    </div>
+   
   )
 }
 
