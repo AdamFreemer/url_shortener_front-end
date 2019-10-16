@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+>
+  <title>
+    Micro URL Shortener
+  </title>
+  <h1
+    className="text-center mb-3 font-weight-light"
+  >
+    Micro URL Shortener
+  </h1>
+  <h6
+    className="text-center mb-3 font-weight-light"
+  >
+    Top 100 Viewed URLs
+  </h6>
+  <div
+    className="d-flex justify-content-center entry-form-spacing"
+  >
+    <form
+      className="form-inline"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group "
+      >
+        <input
+          className="form-control sm-8 mb-2"
+          id="url"
+          onChange={[Function]}
+          placeholder="Enter URL to shorten"
+          type="field"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-primary mx-sm-3 mb-2"
+        onClick={[Function]}
+        type="button"
+      >
+        Create Short URL
+      </button>
+    </form>
+  </div>
+  <div />
+  <div
+    className="text-center"
+  >
+    Loading...
+  </div>
+</div>
+`;

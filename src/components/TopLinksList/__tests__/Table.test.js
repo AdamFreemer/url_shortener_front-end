@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Form from './Form'
+import Table from '../Table'
 
 it('renders correctly', () => {
-  const component = renderer.create(<Form />).toJSON();
+  const component = renderer.create(<Table />).toJSON();
   expect(component).toMatchSnapshot();
 });
