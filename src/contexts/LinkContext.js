@@ -18,7 +18,7 @@ export function LinkProvider(props) {
       .catch(err => setErrors(err));
   }
 
-  function PostLink(link) {
+  function postLink(link) {
     const data = { "url": link }
     fetch(postnewUrlApi, { method: 'POST',
       body: JSON.stringify(data),
@@ -31,7 +31,7 @@ export function LinkProvider(props) {
 
   function SubmitHandler(link) {
     setLoading(false)
-    PostLink(link)
+    postLink(link)
     sleep(1500);
     fetchRows();
   }
