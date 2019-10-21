@@ -9,20 +9,21 @@ function Form() {
   
   function submitClick() {
     if (validator.isURL(link)) {
-      linkContext.SubmitHandler(link);
+      linkContext.submitLink(link);
     } else {
       alert('Invalid URL, please try again.');
     }
     setLink('');
+    linkContext.fetchRows();
   }
 
-  function submitHandler(e) {
+  function submitLink(e) {
     e.preventDefault();
   }
 
   return (
     <div className="d-flex justify-content-center entry-form-spacing">
-      <form className="form-inline" onSubmit={submitHandler}>
+      <form className="form-inline" onSubmit={submitLink}>
         <div className="form-group ">
           <input 
             type="field" 

@@ -1,4 +1,4 @@
-const Rows = [
+const Rowz = [
     {
       id: 1,
       views: 3,
@@ -22,16 +22,7 @@ const Rows = [
     }
   ];
 
-  const ResponseOk = {
-    response: {
-      status: 200
-    }
-  }
+const responseDuplicate = { status: 409 }
+const responseElse = { status: 200 }
 
-  const ResponseDup = {
-    response: {
-      status: 200
-    }
-  }
-
-export { Rows, ResponseOk, ResponseDup };
+export { Rowz, responseElse, responseDuplicate };

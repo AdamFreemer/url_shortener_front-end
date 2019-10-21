@@ -3,13 +3,14 @@ import React, { useState, createContext } from 'react';
 export const LinkContext = createContext({});
 export function LinkProvider(props) {
   const { children } = props;
-  const [setErrors] = useState(false);
-  const [rows, setRows] = useState(false);
+  const [, setErrors] = useState(false);
+  const [rows, setRows] = useState('');
   const [loading, setLoading] = useState(false);
   const [showNewUrl, setShowNewUrl] = useState(false);
   const [newUrl, setNewUrl] = useState('')
   const postnewUrlApi ='https://micro-url-api.herokuapp.com/api/v1/links'
   const fetchTopUrlsApi = 'https://micro-url-api.herokuapp.com/api/v1/top_urls'
+  const jobCompletionApi = 'https://micro-url-api.herokuapp.com/api/v1/busy'
 
   async function fetchRows() {
     const response = await fetch(fetchTopUrlsApi); 
@@ -18,9 +19,15 @@ export function LinkProvider(props) {
       .catch(err => setErrors(err));
   }
 
-  function postLink(link) {
-    const data = { "url": link }
-    fetch(postnewUrlApi, { method: 'POST',
+  function submitLink(link) {
+    postLink(link);
+    pollForJobCompletion();
+  }
+
+  async function postLink(link) {
+    setLoading(true)
+     const data = { "url": link }
+     await fetch(postnewUrlApi, { method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' } })
       .then(response => response.json())
@@ -29,26 +36,20 @@ export function LinkProvider(props) {
     );
   }
 
-  function SubmitHandler(link) {
-    setLoading(false)
-    postLink(link)
-    sleep(1500);
-    fetchRows();
-  }
-
-  function sleep(ms) {
-    var start = new Date().getTime();
-    var end = start;
-    while(end < start + ms) {
-      end = new Date().getTime();
-    }
-  }
-
-  function setLoad() {
-    setLoading(true)
-    sleep(1500)
-    setLoading(false)
-  } 
+  async function pollForJobCompletion() {
+    const response = await fetch(jobCompletionApi); 
+    response.json()
+      .then(response => {
+        if (response === 0) {
+          fetchRows();
+          setLoading(false)
+        } else {
+          setLoading(true);
+          pollForJobCompletion();
+        }
+      })
+      .catch(err => setErrors(err))
+  };
 
   function checkForDuplicate(response) {
     if (response.status === 409) {
@@ -64,11 +65,11 @@ export function LinkProvider(props) {
       value={{
         rows,
         loading,
-        setLoad,
         newUrl,
         showNewUrl,
-        SubmitHandler,
+        submitLink,
         fetchRows,
+        checkForDuplicate,
         LinkContext,
         LinkProvider
       }}

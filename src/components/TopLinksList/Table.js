@@ -5,21 +5,30 @@ import Row from './Row';
 function Table() {
   const linkContext = useContext(LinkContext);
   const rows = linkContext.rows;
-
+  let retry = 0;
+  
   useEffect(() => {
-    linkContext.setLoad();
     linkContext.fetchRows();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  console.log('== rows in Table.js: ', rows)
 
   if (!rows || linkContext.loading) { 
     return (
       <div className="text-center">Loading...</div> 
     )
   }
-
-  return (
-    <div class="table-responsive">
+  
+  if (!rows[rows.length - 1].title) { 
+    while (retry <= 3) {
+      linkContext.fetchRows();
+      retry += 1;
+    }
+  }
+  
+  return (  
+    <div className="table-responsive">
       <table className="table table-bordered">
         <thead>
           <tr>
@@ -37,7 +46,6 @@ function Table() {
         </tbody>
       </table> 
     </div>
-   
   )
 }
 
