@@ -33,12 +33,12 @@ it('renders correctly', () => {
 // };
 
 test("table rows load", () => {
-    // useContextMock.mockReturnValue(rows);
-    // useEffect = jest.spyOn(React, "useEffect");
-    const rows = Rowz
-    const element = new ShallowRenderer().render(
-        <Table props={rows} />
-    );
-    console.log('== element.props: ', element)
-    expect(element.props.children).toBe('Loading...');
+  // useContextMock.mockReturnValue(rows);
+  // useEffect = jest.spyOn(React, "useEffect");
+  const rows = Rowz
+  const element = new ShallowRenderer().render(
+      <Table props={rows} />
+  );
+  console.log('== element.props: ', element)
+  expect(element.props.children).toBe('Loading...');
 });

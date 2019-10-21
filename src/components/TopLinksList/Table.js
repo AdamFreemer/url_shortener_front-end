@@ -12,21 +12,23 @@ function Table() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log('== rows in Table.js: ', rows)
-
-  if (!rows || linkContext.loading) { 
+  if (!rows || linkContext.loading) { // This is the case when awaiting data or loading from the API
     return (
       <div className="text-center">Loading...</div> 
     )
-  }
-  
-  if (!rows[rows.length - 1].title) { 
-    while (retry <= 3) {
-      linkContext.fetchRows();
-      retry += 1;
+  } else if (rows.length === 0) { // This is the case when the database has zero records
+    return (
+      <div className="text-center">No Data</div> 
+    ) 
+  } else {
+    if (!rows[rows.length - 1].title) { // This is the case awaiting for the background job to fetch the title
+      while (retry <= 3) {
+        linkContext.fetchRows();
+        retry += 1;
+      }
     }
   }
-  
+
   return (  
     <div className="table-responsive">
       <table className="table table-bordered">
