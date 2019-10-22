@@ -10,7 +10,7 @@ function Table() {
   useEffect(() => {
     linkContext.fetchRows();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [linkContext.rows])
 
   if (!rows || linkContext.loading) { // This is the case when awaiting data or loading from the API
     return (
@@ -21,8 +21,7 @@ function Table() {
       <div className="text-center">No Data</div> 
     ) 
   } else {
-    const lastRow = rows[rows.length - 1]
-    if (!lastRow.title) { // This is the case awaiting for the background job to fetch the title
+    if (!(linkContext.rows[linkContext.rows.length - 1].title)) { // This is the case awaiting for the background job to fetch the title
       while (retry <= 5) {
         setTimeout(function() {
           linkContext.fetchRows();
