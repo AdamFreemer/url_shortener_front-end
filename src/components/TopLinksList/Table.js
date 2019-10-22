@@ -23,7 +23,7 @@ function Table() {
   } else {
     const lastRow = rows[rows.length - 1]
     if (!lastRow.title) { // This is the case awaiting for the background job to fetch the title
-      while (retry <= 3) {
+      while (retry <= 5) {
         setTimeout(function() {
           linkContext.fetchRows();
         }, 1000);
