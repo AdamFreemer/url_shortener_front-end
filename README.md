@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RAILS URL SHORTENER FRONT-END README
 
-## Available Scripts
+This readme is the basic requirements and setup guide to run this application in your location development environment.
 
-In the project directory, you can run:
+#### Requirements:
 
-### `npm start`
+* A local dev environment with Yarn installed and setup
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Basic Setup Instructions:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. Clone the directory: 
 
-### `npm test`
+    ```
+    $ git clone https://github.com/AdamFreemer/url_shortener_front-end.git
+    ```
+    
+2. Navigate in your console into the app directory
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. `$ yarn install`
 
-### `npm run build`
+#### Running the Application:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. In your first window, run the rails server: 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    ```
+    $ yarn start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Using the Application
 
-### `npm run eject`
+1. To create a short url link in your browser:
+    
+    * Copy / paste a URL from your browser into the "Enter your URL" field.
+    * Click "Create Short URL".
+    * A short-link to the new URL will appear below the URL field.
+    * The link will automatically be added to the top 100 URL list below.
+    * The title of the URL will be fetched in the background and updated upon retrieval (this may take a second or two).
+    * If the title of your URL is longer than 75 characters, it will be truncated on the top 100 URL list.
+    * It may take up to a 20-30 seconds to spin up the front-end if it is in a dormant state on Heroku.
+    * Once the front-end spins up, "loading..." will be shown until the back-end spins up.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
