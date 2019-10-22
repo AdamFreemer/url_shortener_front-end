@@ -38,5 +38,7 @@ This readme is the basic requirements and setup guide to run this application in
     * If the title of your URL is longer than 75 characters, it will be truncated on the top 100 URL list.
     * It may take up to a 20-30 seconds to spin up the front-end if it is in a dormant state on Heroku.
     * Once the front-end spins up, "loading..." will be shown until the back-end spins up.
+    * If the URL exists in the database, you will be notified it exists already via a modal popup.
+    * If the URL is not valid, you will be notified via a modal popup.
 
 

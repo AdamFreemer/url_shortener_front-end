@@ -5,6 +5,7 @@ import Row from './Row';
 function Table() {
   const linkContext = useContext(LinkContext);
   const rows = linkContext.rows;
+  const wait = (ms) => { return new Promise(res => setTimeout(res, ms))}
   let retry = 0;
   
   useEffect(() => {
@@ -21,8 +22,10 @@ function Table() {
       <div className="text-center">No Data</div> 
     ) 
   } else {
-    if (!rows[rows.length - 1].title) { // This is the case awaiting for the background job to fetch the title
-      while (retry <= 5) {
+    const lastRow = rows[rows.length - 1]
+    if (!lastRow.title) { // This is the case awaiting for the background job to fetch the title
+      wait(500)
+      while (retry < 3) {
         linkContext.fetchRows();
         retry += 1;
       }
