@@ -27,7 +27,6 @@ function Form() {
         <div className="form-group ">
           <input 
             type="field" 
-            // style={{width: 500}}
             className="form-control sm-8 mb-2" 
             id="url" 
             placeholder="Enter URL to shorten"

@@ -4,26 +4,32 @@ exports[`renders correctly a short url 1`] = `
 <tr>
   <td
     className="text-right"
-  />
+  >
+    3
+  </td>
   <td>
     <b>
-      
+      Apple, Inc.
     </b>
     <br />
     <i>
       <a
+        href="http://www.apple.com/abv123abv123abv123abv123abv123abv123abv123abv123abv123abv123abv123"
         rel="noopener noreferrer"
         target="_blank"
       >
-        
+        http://www.apple.com/abv123abv123abv123abv123abv123abv123abv123abv123abv123...
       </a>
     </i>
   </td>
   <td>
     <a
+      href="https://micro-url-api.herokuapp.com/a"
       rel="noopener noreferrer"
       target="_blank"
-    />
+    >
+      https://micro-url-api.herokuapp.com/a
+    </a>
   </td>
 </tr>
 `;

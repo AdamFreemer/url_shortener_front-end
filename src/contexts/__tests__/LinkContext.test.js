@@ -22,6 +22,7 @@ describe('<LinkProvider />', () => {
 
   describe('checkForDuplicate()', () => {
     it('responds with a duplicate', () => {
+      window.alert = () => {};
       const { result } = renderHook(() => LinkProvider({children: {} }));
       act(() => {
         result.current.props.value.checkForDuplicate(responseDuplicate);

@@ -1,9 +1,9 @@
-const Rowz = [
+const rows = [
     {
       id: 1,
       views: 3,
       title: "Apple, Inc.",
-      url: "http://www.apple.com",
+      url: "http://www.apple.com/abv123abv123abv123abv123abv123abv123abv123abv123abv123abv123abv123",
       short_url: "https://micro-url-api.herokuapp.com/a"
     },
     {
@@ -25,4 +25,4 @@ const Rowz = [
 const responseDuplicate = { status: 409 }
 const responseElse = { status: 200 }
 
-export { Rowz, responseElse, responseDuplicate };
+export { rows, responseElse, responseDuplicate };
